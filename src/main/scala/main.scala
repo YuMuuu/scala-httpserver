@@ -24,18 +24,16 @@ object Main {
 
     var contentLength = 0
 
-    //@throws (classOf[IOException])
     Iterator.continually(in.readLine()).takeWhile(it => it != null && !it.isEmpty).foreach {
       line =>
         header.append(line + "\n");
         if (line.startsWith("Content-Length")) {
           contentLength = line.split(":")(1).trim.toInt
-          //println(contentLength)
         }
     }
 
     if (0 < contentLength) {
-      var c = new Array[Char](contentLength)
+      val c = new Array[Char](contentLength)
       in.read(c)
       body.append(String.valueOf(c))
     }
