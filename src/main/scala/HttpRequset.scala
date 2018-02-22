@@ -6,13 +6,14 @@ object HttpRequset {
 
  class HttpRequest{
    val CRLF = "\r\n"
-   var hedderText = ""
-   var bodyText = ""
+   val hedderText = ""
+   val bodyText = ""
 
    def HttpReqest(input: InputStream):Unit = {
-     val in = new BufferedReader(new InputStreamReader(input, "UTF-8"))
+     val in = new BufferedReader(new InputStreamReade r(input, "UTF-8"))
    }
-   def readHedder(in: BufferReader):Unit ={
+
+   def readHedder(in: BufferedReader):Unit ={
      val line = in.readLine()
      val header = new StringBuilder()
      var contentLength = 0
@@ -21,6 +22,9 @@ object HttpRequset {
        line =>
          header.append(line + "\n")
      }
+     header.toString();
    }
+
+
  }
 }
