@@ -11,6 +11,7 @@ object HttpRequset {
     //    }
 
     val CRLF = "\r\n"
+    //WSLからcurlを実行しているからなのかこっちでは駄目だった
     val LF = "\n"
     val headerText = new StringBuilder()
     val bodyText = new StringBuilder()
@@ -55,9 +56,19 @@ object HttpRequset {
       contentLength(0).toInt
     }
 
-    def getHeaderText(): String = headerText.toString()
+    //def getHeaderText(): String = headerText.toString()
+    def getHeaderText(): String = {
+      textSubString(headerText.toString)
+    }
 
-    def getBodyText(): String = bodyText.toString()
+    def getBodyText(): String = {
+      textSubString(bodyText.toString())
+    }
+
+    def textSubString(str: String): String = {//Some(...)を消すメソッド
+      str.substring(5, str.length - 1)
+    }
+
 
 
   }
