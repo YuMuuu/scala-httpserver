@@ -1,23 +1,22 @@
 import java.io.{BufferedReader, InputStream, InputStreamReader}
+import java.net.Socket
 
 object HttpRequset {
 
   class HttpRequest {
-    def toIntOption(s: String): Option[Int] = try {
-      Some(s.toInt)
-    } catch {
-      case _ => None
-    }
+    //    def toIntOption(s: String): Option[Int] = try {
+    //      Some(s.toInt)
+    //    } catch {
+    //      case _ => None
+    //    }
 
     val CRLF = "\r\n"
+    val LF = "\n"
     val headerText = new StringBuilder()
     val bodyText = new StringBuilder()
 
 
-
-
-
-    def HttpRequest(input:InputStream): Unit = {
+    def HttpRequest(input: InputStream): Unit = {
       val in = new BufferedReader(new InputStreamReader(input, "UTF-8"))
       headerText.append(readHeader(in))
       bodyText.append(readBody(in))
@@ -49,13 +48,11 @@ object HttpRequset {
     }
 
     def getContentLength(): Integer = {
-      val contentLength = headerText.toString().split(CRLF)
+      val contentLength = headerText.toString().split(LF)
         .filter(_.startsWith("Content-Length"))
         .map(_.split(":")(1).trim)
-      //一回変数にしてから戻り値に指定しないとエラーが出る。なーぜーだー
-      val n = toIntOption(contentLength(1)) getOrElse (0)
-      n
-
+      //stream文で綺麗に書きたい
+      contentLength(0).toInt
     }
 
     def getHeaderText(): String = headerText.toString()

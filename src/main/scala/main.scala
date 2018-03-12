@@ -10,11 +10,11 @@ object Main {
 
     val server = new ServerSocket(80)
     val socket = server.accept
-    val in:InputStream = socket.getInputStream
-    val request = new HttpRequest(in)
-
-    println(request.getHeaderText)
-    println(request.getBodyText)
-    println("<<< end")
+    val in: InputStream = socket.getInputStream
+    val request = new HttpRequest
+    request.HttpRequest(in)
+      println (request.getHeaderText)
+      println (request.getBodyText)
+      println ("<<< end")
   }
 }
