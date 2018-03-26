@@ -1,17 +1,8 @@
 import java.io.{BufferedReader, InputStream, InputStreamReader}
-import java.net.Socket
 
 object HttpRequset {
 
   class HttpRequest {
-    //    def toIntOption(s: String): Option[Int] = try {
-    //      Some(s.toInt)
-    //    } catch {
-    //      case _ => None
-    //    }
-
-    val CRLF = "\r\n"
-    //WSLからcurlを実行しているからなのかこっちでは駄目だった
     val LF = "\n"
     val headerText = new StringBuilder()
     val bodyText = new StringBuilder()
@@ -19,8 +10,16 @@ object HttpRequset {
 
     def HttpRequest(input: InputStream): Unit = {
       val in = new BufferedReader(new InputStreamReader(input, "UTF-8"))
-      headerText.append(readHeader(in))
-      bodyText.append(readBody(in))
+
+      readHeader(in) match {
+        case Some(s) => headerText.append(s)
+        case None => headerText.append("can't read header")
+      }
+
+      readBody(in) match {
+        case Some(s) => bodyText.append(s)
+        case None => bodyText.append("can't read body")
+      }
     }
 
     def readHeader(in: BufferedReader): Option[String] = {
@@ -56,21 +55,13 @@ object HttpRequset {
       contentLength(0).toInt
     }
 
-    //def getHeaderText(): String = headerText.toString()
     def getHeaderText(): String = {
-      textSubString(headerText.toString)
+      headerText.toString()
     }
 
     def getBodyText(): String = {
-      textSubString(bodyText.toString())
+      bodyText.toString()
     }
-
-    def textSubString(str: String): String = {//Some(...)を消すメソッド
-      str.substring(5, str.length - 1)
-    }
-
-
-
   }
 
 }

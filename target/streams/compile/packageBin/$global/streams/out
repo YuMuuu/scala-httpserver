@@ -1,1 +1,15 @@
-[0m[[0m[0mdebug[0m] [0m[0mJar uptodate: /home/yum/IdeaProjects/scala-httpserver/target/scala-2.12/scala-httpserver_2.12-0.1.jar[0m
+[0m[[0m[0minfo[0m] [0m[0mPackaging /home/yum/IdeaProjects/scala-httpserver/target/scala-2.12/scala-httpserver_2.12-0.1.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HttpRequset.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/yum/IdeaProjects/scala-httpserver/target/scala-2.12/classes/HttpRequset.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/yum/IdeaProjects/scala-httpserver/target/scala-2.12/classes/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HttpRequset$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/yum/IdeaProjects/scala-httpserver/target/scala-2.12/classes/HttpRequset$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HttpRequset$HttpRequest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/yum/IdeaProjects/scala-httpserver/target/scala-2.12/classes/HttpRequset$HttpRequest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/yum/IdeaProjects/scala-httpserver/target/scala-2.12/classes/Main$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/yum/IdeaProjects/scala-httpserver/target/scala-2.12/classes/Main.class[0m
+[0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m

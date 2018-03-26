@@ -1,12 +1,13 @@
 import java.io._
 import java.net._
+
 import HttpRequset.HttpRequest
 
 object Main {
 
   def main(args: Array[String]): Unit = {
     println("start >>>")
-    val server = new ServerSocket(80)
+    val server = new ServerSocket(8080)
     val socket = server.accept
     val in: InputStream = socket.getInputStream
     val request = new HttpRequest {
