@@ -13,9 +13,8 @@ object Main {
     val request = new HttpRequest {
       HttpRequest(in)
     }
-    println(request.getHeaderText)
-    println(request.getBodyText)
+    println(request.headerText.toString)
+    println(request.bodyText.toString)
     println("<<< end")
   }
-
 }

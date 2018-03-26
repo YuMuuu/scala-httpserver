@@ -54,14 +54,6 @@ object HttpRequset {
       //stream文で綺麗に書きたい
       contentLength(0).toInt
     }
-
-    def getHeaderText(): String = {
-      headerText.toString()
-    }
-
-    def getBodyText(): String = {
-      bodyText.toString()
-    }
   }
 
 }
