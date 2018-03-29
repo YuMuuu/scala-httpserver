@@ -4,8 +4,8 @@ object HttpRequset {
 
   class HttpRequest {
     val LF = "\n"
-    val headerText = new StringBuilder()
-    val bodyText = new StringBuilder()
+    val headerText = new StringBuilder
+    val bodyText = new StringBuilder
 
 
     def HttpRequest(input: InputStream): Unit = {
@@ -18,7 +18,7 @@ object HttpRequset {
 
       readBody(in) match {
         case Some(s) => bodyText.append(s)
-        case None => bodyText.append("can't read body")
+        case None => bodyText.append("nothing body")
       }
     }
 
@@ -37,6 +37,46 @@ object HttpRequset {
     }
 
     def readBody(in: BufferedReader): Option[String] = {
+      if (isChunkedTransfer) {
+        //readBodyByChunkedTransfer(in)
+      } else {
+          //readBodyByContentLength(in)
+      }
+      readBodyByContentLength(in)
+    }
+
+    def getContentLength(): Integer = {
+      val contentLength = headerText.toString().split(LF)
+        .filter(_.startsWith("Content-Length"))
+        .map(_.split(":")(1).trim)
+      //stream文で綺麗に書きたい
+      contentLength(0).toInt
+    }
+
+    def isChunkedTransfer(): Boolean = {
+      val chunkedTransfer = headerText.toString().split(LF)
+        .filter(_.startsWith("Transfer-Encoding"))
+        .map(_.split(":")(1).trim)
+      chunkedTransfer(0) == "chunked"
+    }
+
+    def readBodyByChunkedTransfer(in: BufferedReader) = {
+      val body = new StringBuilder
+      var chunkSize = Integer.parseInt(in.readLine, 16)
+      while ( {
+        chunkSize != 0
+      }) {
+        val buffer = new Array[Char](chunkSize)
+        in.read(buffer)
+        body.append(buffer)
+        in.readLine // chunk-body の末尾にある CRLF を読み飛ばす
+
+        chunkSize = Integer.parseInt(in.readLine, 16)
+      }
+      body.toString
+    }
+
+    def readBodyByContentLength(in: BufferedReader): Option[String] = {
       val contentLength = getContentLength()
       if (contentLength <= 0) {
         None
@@ -47,13 +87,7 @@ object HttpRequset {
       }
     }
 
-    def getContentLength(): Integer = {
-      val contentLength = headerText.toString().split(LF)
-        .filter(_.startsWith("Content-Length"))
-        .map(_.split(":")(1).trim)
-      //stream文で綺麗に書きたい
-      contentLength(0).toInt
-    }
+
   }
 
 }
