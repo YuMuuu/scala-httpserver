@@ -23,8 +23,8 @@ object HttpRequset {
     }
 
     def readHeader(in: BufferedReader): Option[String] = {
-      val line = in.readLine()
-      val header = new StringBuilder()
+      val line = in.readLine
+      val header = new StringBuilder
 
       if (line == null) {
         None
@@ -32,17 +32,16 @@ object HttpRequset {
         Iterator.continually(in.readLine()).takeWhile(it => it != null && !it.isEmpty).foreach {
           line => header.append(line + "\n")
         }
-        Some(header.toString())
+        Some(header.toString)
       }
     }
 
     def readBody(in: BufferedReader): Option[String] = {
       if (isChunkedTransfer) {
-        //readBodyByChunkedTransfer(in)
+        Some(readBodyByChunkedTransfer(in))
       } else {
-          //readBodyByContentLength(in)
+        readBodyByContentLength(in)
       }
-      readBodyByContentLength(in)
     }
 
     def getContentLength(): Integer = {
@@ -53,6 +52,7 @@ object HttpRequset {
       contentLength(0).toInt
     }
 
+    //true false exception を返す糞メソッド
     def isChunkedTransfer(): Boolean = {
       val chunkedTransfer = headerText.toString().split(LF)
         .filter(_.startsWith("Transfer-Encoding"))
@@ -60,18 +60,14 @@ object HttpRequset {
       chunkedTransfer(0) == "chunked"
     }
 
-    def readBodyByChunkedTransfer(in: BufferedReader) = {
+    def readBodyByChunkedTransfer(in: BufferedReader): String = {
       val body = new StringBuilder
-      var chunkSize = Integer.parseInt(in.readLine, 16)
-      while ( {
-        chunkSize != 0
-      }) {
-        val buffer = new Array[Char](chunkSize)
-        in.read(buffer)
-        body.append(buffer)
-        in.readLine // chunk-body の末尾にある CRLF を読み飛ばす
-
-        chunkSize = Integer.parseInt(in.readLine, 16)
+      Iterator.continually(Integer.parseInt(in.readLine, 16)).takeWhile(_ != 0).foreach {
+        line =>
+          val buffer = new Array[Char](line)
+          in.read(buffer)
+          body.append(buffer)
+          val dummy = in.readLine() //これ読み捨てにすると戻り値になる？？
       }
       body.toString
     }
@@ -86,8 +82,6 @@ object HttpRequset {
         Some(String.valueOf(c))
       }
     }
-
-
   }
 
 }
