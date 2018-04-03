@@ -38,11 +38,11 @@ object HttpRequset {
 
     def readBody(in: BufferedReader): Option[String] = {
       if (isChunkedTransfer) {
-        //readBodyByChunkedTransfer(in)
+        Some(readBodyByChunkedTransfer(in))
       } else {
-          //readBodyByContentLength(in)
+          readBodyByContentLength(in)
       }
-      readBodyByContentLength(in)
+      //readBodyByContentLength(in)
     }
 
     def getContentLength(): Integer = {
