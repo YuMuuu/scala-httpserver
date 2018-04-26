@@ -57,7 +57,7 @@ object HttpRequset {
       val chunkedTransfer = headerText.toString().split(LF)
         .filter(_.startsWith("Transfer-Encoding"))
         .map(_.split(":")(1).trim)
-      chunkedTransfer(0) == "chunked"
+      chunkedTransfer.length>0 && chunkedTransfer(0) == "chunked"
     }
 
     def readBodyByChunkedTransfer(in: BufferedReader): String = {
