@@ -8,17 +8,16 @@ object HttpRequset {
     val bodyText = new StringBuilder
 
 
-    def HttpRequest(input: InputStream): Unit = {
+    def HttpRequest(input: InputStream, ht :StringBuilder=headerText, bt :StringBuilder=bodyText): Unit = {
       val in = new BufferedReader(new InputStreamReader(input, "UTF-8"))
 
       readHeader(in) match {
-        case Some(s) => headerText.append(s)
-        case None => headerText.append("can't read header")
+        case Some(s)  =>  ht.append(s)
+        case None     =>  ht.append("can't read header")
       }
-
       readBody(in) match {
-        case Some(s) => bodyText.append(s)
-        case None => bodyText.append("nothing body")
+        case Some(s)  =>  bt.append(s)
+        case None     =>  bt.append("nothing body")
       }
     }
 
@@ -52,7 +51,6 @@ object HttpRequset {
       contentLength(0).toInt
     }
 
-    //true false exception を返す糞メソッド
     def isChunkedTransfer(): Boolean = {
       val chunkedTransfer = headerText.toString().split(LF)
         .filter(_.startsWith("Transfer-Encoding"))
