@@ -38,11 +38,11 @@ object HttpRequset {
 
     def readBody(in: BufferedReader): Option[String] = {
       if (isChunkedTransfer) {
-        //readBodyByChunkedTransfer(in)
+        Some(readBodyByChunkedTransfer(in))
       } else {
-          //readBodyByContentLength(in)
+          readBodyByContentLength(in)
       }
-      readBodyByContentLength(in)
+      //readBodyByContentLength(in)
     }
 
     def getContentLength(): Integer = {
@@ -54,10 +54,11 @@ object HttpRequset {
     }
 
     def isChunkedTransfer(): Boolean = {
+
       val chunkedTransfer = headerText.toString().split(LF)
         .filter(_.startsWith("Transfer-Encoding"))
         .map(_.split(":")(1).trim)
-      chunkedTransfer(0) == "chunked"
+      chunkedTransfer.length != 0 &&  chunkedTransfer(0) == "chunked"
     }
 
     def readBodyByChunkedTransfer(in: BufferedReader) = {
