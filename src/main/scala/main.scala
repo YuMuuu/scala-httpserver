@@ -2,30 +2,33 @@ import java.io._
 import java.net._
 
 object Main {
-  val CRLF = "\r\n"
+  //val CRLF = "\r\n"
+  val lineCode = System.lineSeparator
 
   def main(args: Array[String]): Unit = {
     println("start >>>")
     val server = new ServerSocket(8080)
     val socket = server.accept
+
     val in = socket.getInputStream
     val out = new PrintStream(socket.getOutputStream)
-    val request = new HttpRequest(in)
 
+    val request = new HttpRequest(in)
     println(request.headerText.toString)
     println(request.bodyText.toString)
 
-    //out.println(request.headerText.toString())
-    //out.println(request.bodyText.toString())
-    //out.println("HTT&P/1.1 200 OK" )
-    out.println("Content-Type: text/html")
-    out.println("firefoxだと<pre></pre>で表示される")
-    out.println("chromeだと無効な応答だと怒られて接続できない")
-    out.println("IEだとfirefox+文字化けになる")
-    out.println("どうすればいいんだろう")
+    val response = new HttpResponse
+
+    response.headerText.append("HTTP/1.1 200 OK" + lineCode)
+    response.headerText.append("Content-Type: text/html" + lineCode)
+    response.headerText.append(lineCode)
+    response.bodyText.append("<h1>Hello World!!</h1>")
+    response.bodyText.append("<p>ざーこざーこ</p>")
+
+
+    out.print(response.headerText.toString)
+    out.print(response.bodyText.toString)
     socket.close
     println("<<< end")
-
-
   }
 }
