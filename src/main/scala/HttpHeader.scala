@@ -1,20 +1,16 @@
 import java.io.{BufferedReader, InputStream, InputStreamReader}
 
-class HttpHeader(input: InputStream, headerText:StringBuilder) {
+class HttpHeader(input: InputStream, headerText: StringBuilder) {
   val lineCode = System.lineSeparator
   val in = new BufferedReader(new InputStreamReader(input, "UTF-8"))
 
   def readHeader(in: BufferedReader): Option[String] = {
-    val line = in.readLine //読み捨て
     val header = new StringBuilder
 
-    if (line == null) None
-    else {
-      Iterator.continually(in.readLine()).takeWhile(it => it != null && !it.isEmpty).foreach {
-        line => header.append(line + lineCode)
-      }
-      Some(header.toString)
+    Iterator.continually(in.readLine()).takeWhile(it => it != null && !it.isEmpty).foreach {
+      line => header.append(line + lineCode)
     }
+    Some(header.toString)
   }
 
   def isChunkedTransfer(): Boolean = {
