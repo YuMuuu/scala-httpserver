@@ -20,7 +20,6 @@ class HttpBody(input: InputStream, header: HttpHeader) {
 
   def readBodyByContentLength(in: BufferedReader, h: HttpHeader = header): Option[String] = {
     val contentLength = h.getContentLength()
-
     if (contentLength <= 0) None
     else {
       val c = new Array[Char](contentLength)
