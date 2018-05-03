@@ -2,7 +2,6 @@ import java.io._
 import java.net._
 
 object Main {
-  //val CRLF = "\r\n"
   val lineCode = System.lineSeparator
 
   def main(args: Array[String]): Unit = {
@@ -19,11 +18,17 @@ object Main {
 
     val response = new HttpResponse
 
+
     response.headerText.append("HTTP/1.1 200 OK" + lineCode)
     response.headerText.append("Content-Type: text/html" + lineCode)
     response.headerText.append(lineCode)
     response.bodyText.append("<h1>Hello World!!</h1>")
     response.bodyText.append("<p>ざーこざーこ</p>")
+
+    request.getmethod() match{
+      case Some(s) => response.bodyText.append(s)
+      case None => response.bodyText.append("<h2>nothing getmethod status</h2>")
+    }
 
 
     out.print(response.headerText.toString)
