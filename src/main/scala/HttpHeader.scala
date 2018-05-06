@@ -4,6 +4,7 @@ class HttpHeader(input: InputStream, headerText: StringBuilder) {
   val lineCode = System.lineSeparator
   val in = new BufferedReader(new InputStreamReader(input, "UTF-8"))
 
+
   def readHeader(in: BufferedReader): Option[String] = {
     val header = new StringBuilder
 
@@ -24,10 +25,9 @@ class HttpHeader(input: InputStream, headerText: StringBuilder) {
     val contentLength = headerText.toString().split(lineCode)
       .filter(_.startsWith("Content-Length"))
       .map(_.split(":")(1).trim)
-    //stream文で綺麗に書きたい
+    //綺麗に書きたい
     if (contentLength.length > 0) contentLength(0).toInt
     else 0
   }
-
 }
 

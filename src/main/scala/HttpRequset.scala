@@ -1,6 +1,7 @@
 import java.io.{BufferedReader, InputStream, InputStreamReader}
 
 class HttpRequest(input: InputStream) {
+  val lineCode = System.lineSeparator
   val headerText = new StringBuilder
   val bodyText = new StringBuilder
   val in = new BufferedReader(new InputStreamReader(input, "UTF-8"))
@@ -17,3 +18,4 @@ class HttpRequest(input: InputStream) {
     case None => bodyText.append("nothing body")
   }
 }
+
