@@ -14,16 +14,15 @@ class HttpHeader(input: InputStream, headerText: StringBuilder) {
     Some(header.toString)
   }
 
-
   def isChunkedTransfer(): Boolean = {
-    val chunkedTransfer = headerText.toString.split(lineCode)
+    val chunkedTransfer = headerText.toString().split(lineCode)
       .filter(_.startsWith("Transfer-Encoding"))
       .map(_.split(":")(1).trim)
     chunkedTransfer.length > 0 && chunkedTransfer(0) == "chunked"
   }
 
   def getContentLength(): Integer = {
-    val contentLength = headerText.toString.split(lineCode)
+    val contentLength = headerText.toString().split(lineCode)
       .filter(_.startsWith("Content-Length"))
       .map(_.split(":")(1).trim)
     //綺麗に書きたい

@@ -4,3 +4,4 @@ class HttpResponse {
   val headerText = new StringBuilder
   val bodyText = new StringBuilder
 }
+
