@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61d82d4d-bfe5-45a7-a316-1b781b7d330e" name="デフォルト" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/HttpResponseBody.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/HttpStatus.scala" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/dir/index.html" afterPath="$PROJECT_DIR$/src/dir/index.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/HttpHeader.scala" afterPath="$PROJECT_DIR$/src/main/scala/HttpHeader.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/HttpResponse.scala" afterPath="$PROJECT_DIR$/src/main/scala/HttpResponse.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/main.scala" afterPath="$PROJECT_DIR$/src/main/scala/main.scala" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/HttpHeader.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/HttpHeader.class" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/HttpResponse.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/HttpResponse.class" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Main$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Main$.class" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/README.md.txt" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,7 +24,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/main.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="444">
@@ -39,6 +32,16 @@
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,6 +98,7 @@
         <option value="$PROJECT_DIR$/src/main/scala/HttpResponse.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/HttpResponseBody.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/main.scala" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -414,16 +418,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/scala/main.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/HttpRequset.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -825,6 +819,14 @@
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
