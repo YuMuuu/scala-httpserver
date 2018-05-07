@@ -1,6 +1,4 @@
 class HttpStatus {
-  val lineCode = System.lineSeparator
-
   def status(s: String): String = {
     s match {
       case "OK"                   => "200 OK"
