@@ -1,4 +1,5 @@
-import java.io.{BufferedReader, InputStream, InputStreamReader}
+import java.io.{BufferedReader, File, InputStream, InputStreamReader}
+import java.nio.file.{Files, NoSuchFileException, Paths}
 
 class HttpHeader(input: InputStream, headerText: StringBuilder) {
   val lineCode = System.lineSeparator

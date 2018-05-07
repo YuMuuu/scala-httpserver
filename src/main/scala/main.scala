@@ -18,37 +18,21 @@ object Main {
     println(request.bodyText.toString)
     val response = new HttpResponse
     val status = new HttpStatus
-    //リクエストがhtmlだったら
-
+    val contentType = new ContentType
 
     request.getmethod() match {
       case Some(s) => {
         val body = new HttpResponseBody
-        //response.bodyText.append(body.readBody(s))
+        val filename = body.getFileName(s)
+        println(filename)
         body.readBody(s) match {
-          case Right(body) => {
-            //正常な場合
-            response.headerText.append("HTTP/1.1 200 OK" + status.status("OK") + lineCode)
-            response.headerText.append("Content-Type: text/html" + lineCode)
-            response.headerText.append(lineCode)
-            response.bodyText.append(body)
+          case Right(responseBody) => {
+            response.writeResponse(status.status("OK"), contentType.contentType(filename), responseBody) //正常な場合
           }
-          case Left(e) => {
-            //存在しないファイルを指定した時
-            response.headerText.append("HTTP/1.1 " + status.status("NOT_FOUND") + lineCode)
-            response.headerText.append("Content-Type: text/html" + lineCode)
-            response.headerText.append(lineCode)
-            response.headerText.append(status.status("NOT_FOUND"))
-          }
+          case Left(e) => response.writeResponse(status.status("NOT_FOUND"), contentType.contentType("html"), status.status("NOT_FOUND")) //存在しないファイルを指定した時
         }
       }
-      case None => {
-        //カレントディレクトリは見せねぇ！
-        response.headerText.append("HTTP/1.1 " + status.status("FORBIDDEN") + lineCode)
-        response.headerText.append("Content-Type: text/html" + lineCode)
-        response.headerText.append(lineCode)
-        response.headerText.append(status.status("FORBIDDEN"))
-      }
+      case None => response.writeResponse(status.status("FORBIDDEN"), contentType.contentType("html"), status.status("FORBIDDEN")) //カレントディレクトリは見せねぇ！
     }
     out.print(response.headerText.toString)
     out.print(response.bodyText.toString)
