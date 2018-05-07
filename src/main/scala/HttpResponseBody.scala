@@ -15,7 +15,6 @@ class HttpResponseBody {
 //      }
       val bytes = Files.readAllBytes(path)
       readBody.append(StandardCharsets.UTF_8.decode(ByteBuffer.wrap(bytes)).toString())
-      //readBody.append(bytes.toString)
         Right(readBody.toString)
     } catch {
       case e: NoSuchFileException => Left(e)
