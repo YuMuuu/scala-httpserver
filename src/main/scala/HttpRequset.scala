@@ -17,5 +17,11 @@ class HttpRequest(input: InputStream) {
     case Some(s) => bodyText.append(s)
     case None => bodyText.append("nothing body")
   }
+  def getmethod(): Option[String] = {
+    headerText.toString.split(lineCode)
+      .filter(_.startsWith("GET"))
+      .map(_.split(" ")(1))
+      .find(_.matches("^/.+"))
+  }
 }
 
