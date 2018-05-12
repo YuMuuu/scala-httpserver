@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61d82d4d-bfe5-45a7-a316-1b781b7d330e" name="デフォルト" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/dir/sample2.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/ScalaHttpServer.scala" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/dir/index.html" afterPath="$PROJECT_DIR$/src/dir/index.html" />
-      <change beforePath="$PROJECT_DIR$/src/dir/sample.html" afterPath="$PROJECT_DIR$/src/dir/sample.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/ContentType.scala" afterPath="$PROJECT_DIR$/src/main/scala/ContentType.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/HttpRequset.scala" afterPath="$PROJECT_DIR$/src/main/scala/HttpRequset.scala" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/HttpResponseBody.scala" afterPath="$PROJECT_DIR$/src/main/scala/HttpResponseBody.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/HttpServer.scala" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/main.scala" afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/HttpRequest.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/HttpRequest.class" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/HttpServer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Main$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Main$.class" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Main.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Main.class" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/HttpResponseBody.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/HttpResponseBody.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/Main.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -54,14 +43,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScalaHttpServer.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ScalaHttpServer.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/ScalaHttpServer.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-37">
-              <caret line="7" column="3" lean-forward="false" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+            <state relative-caret-position="306">
+              <caret line="27" column="42" lean-forward="false" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpResponseBody.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/HttpResponseBody.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="30" column="6" lean-forward="false" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,7 +95,6 @@
         <option value="$PROJECT_DIR$/src/main/scala/HttpResponse.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/HttpHeader.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/HttpBody.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/HttpResponseBody.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/HttpRequset.scala" />
         <option value="$PROJECT_DIR$/src/dir/index.html" />
         <option value="$PROJECT_DIR$/src/main/scala/main.scala" />
@@ -106,9 +104,10 @@
         <option value="$PROJECT_DIR$/src/main/scala/HttpServer.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/Main.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/ContentType.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/ScalaHttpServer.scala" />
         <option value="$PROJECT_DIR$/src/dir/sample.html" />
         <option value="$PROJECT_DIR$/src/dir/sample2.html" />
+        <option value="$PROJECT_DIR$/src/main/scala/HttpResponseBody.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/ScalaHttpServer.scala" />
       </list>
     </option>
   </component>
@@ -418,7 +417,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="13" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -709,14 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/HttpResponseBody.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="37" lean-forward="false" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/HttpStatus.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -812,22 +803,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/ScalaHttpServer.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/HttpResponseBody.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-37">
-          <caret line="7" column="3" lean-forward="false" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="476">
+          <caret line="30" column="6" lean-forward="false" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/Main.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/ScalaHttpServer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="27" column="42" lean-forward="false" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
