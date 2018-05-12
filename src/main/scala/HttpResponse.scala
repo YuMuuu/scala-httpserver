@@ -9,6 +9,7 @@ class HttpResponse {
     headerText.append("Content-Type: " + contentType + lineCode)
     headerText.append(lineCode)
     bodyText.append(body)
+    bodyText.append(lineCode)
   }
 }
 

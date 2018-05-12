@@ -23,7 +23,6 @@ class HttpResponseBody {
 
   def getFileName(s: String): String = {
     val path = Paths.get("src/dir" + s)
-    println(Files.exists(path))
     if (Files.exists(path)) {
       val filename = path.getFileName.toString.split('.')
       filename(1)

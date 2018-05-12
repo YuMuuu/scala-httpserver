@@ -1,7 +1,9 @@
 import java.io.PrintStream
-import java.net.ServerSocket
+import java.net._
+import java.util.concurrent.TimeUnit
 
 class ScalaHttpServer {
+  val lineCode = System.lineSeparator
   val server = new ServerSocket(8080)
   while (true) {
     run(server)
@@ -28,14 +30,23 @@ class ScalaHttpServer {
         val filename = body.getFileName(s)
         body.readBody(s) match {
           case Right(responseBody) => {
+            println(responseBody)
             response.writeResponse(status.status("OK"), contentType.contentType(filename), responseBody) //正常な場合
           }
-          case Left(e) => response.writeResponse(status.status("NOT_FOUND"), contentType.contentType("html"), status.status("NOT_FOUND")) //存在しないファイルを指定した時
+          case Left(e) => {
+            println("404!")
+            response.writeResponse(status.status("NOT_FOUND"), contentType.contentType("txt"), status.status("NOT_FOUND")) //存在しないファイルを指定した時
+          }
         }
       }
-      case None => response.writeResponse(status.status("FORBIDDEN"), contentType.contentType("html"), status.status("FORBIDDEN")) //カレントディレクトリは見せねぇ！
+      case None => {
+        println("403!")
+        response.writeResponse(status.status("FORBIDDEN"), contentType.contentType("txt"), status.status("FORBIDDEN")) //カレントディレクトリは見せねぇ！
+      }
     }
     out.print(response.headerText.toString)
     out.print(response.bodyText.toString)
+    out.close()
+    //TimeUnit.SECONDS.sleep(1)
   }
 }
