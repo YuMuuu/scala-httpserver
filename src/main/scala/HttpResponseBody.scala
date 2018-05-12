@@ -23,7 +23,7 @@ class HttpResponseBody {
 
   def getFileName(s: String): String = {
     val path = Paths.get("src/dir" + s)
-    //if (Files.exists(path)) { //これが謎にfalseになる
+    //if (Files.exists(path)) { //これがfalseになる
     val filename = path.getFileName.toString.split('.')
     filename(1)
     //}

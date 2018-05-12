@@ -1,4 +1,5 @@
 class ContentType {
+  contentType("txt")
   def contentType(s: String): String = {
     s match {
       case "txt" => "text/plain"

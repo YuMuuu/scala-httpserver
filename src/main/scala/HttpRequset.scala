@@ -15,7 +15,9 @@ class HttpRequest(input: InputStream) {
   }
   body.readBody(in) match {
     case Some(s) => bodyText.append(s)
-    case None => bodyText.append("nothing body")
+    //case None => bodyText.append("nothing body")
+    case None => bodyText.append("")
+    //bodyが無いほうが多いのでわざわざappendしないように
   }
 
   def getmethod(): Option[String] = {
