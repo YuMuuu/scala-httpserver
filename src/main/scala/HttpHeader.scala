@@ -5,10 +5,8 @@ class HttpHeader(input: InputStream, headerText: StringBuilder) {
   val lineCode = System.lineSeparator
   val in = new BufferedReader(new InputStreamReader(input, "UTF-8"))
 
-
   def readHeader(in: BufferedReader): Option[String] = {
     val header = new StringBuilder
-
     Iterator.continually(in.readLine()).takeWhile(it => it != null && !it.isEmpty).foreach {
       line => header.append(line + lineCode)
     }

@@ -15,7 +15,6 @@ class ScalaHttpServer {
     val in = socket.getInputStream
     val out = new PrintStream(socket.getOutputStream)
 
-
     val request = new HttpRequest(in)
     println(request.headerText.toString)
     println(request.bodyText.toString)
@@ -29,24 +28,16 @@ class ScalaHttpServer {
         val body = new HttpResponseBody
         val filename = body.getFileName(s)
         body.readBody(s) match {
-          case Right(responseBody) => {
-            println(responseBody)
-            response.writeResponse(status.status("OK"), contentType.contentType(filename), responseBody) //正常な場合
-          }
-          case Left(e) => {
-            println("404!")
-            response.writeResponse(status.status("NOT_FOUND"), contentType.contentType("txt"), status.status("NOT_FOUND")) //存在しないファイルを指定した時
-          }
+          case Right(responseBody) => response.writeResponse(status.status("OK"), contentType.contentType(filename), responseBody) //正常な場合
+          case Left(e) => response.writeResponse(status.status("NOT_FOUND"), contentType.contentType("txt"), status.status("NOT_FOUND")) //存在しないファイルを指定した時
         }
       }
       case None => {
-        println("403!")
         response.writeResponse(status.status("FORBIDDEN"), contentType.contentType("txt"), status.status("FORBIDDEN")) //カレントディレクトリは見せねぇ！
       }
     }
     out.print(response.headerText.toString)
     out.print(response.bodyText.toString)
-    out.close()
-    //TimeUnit.SECONDS.sleep(1)
+    out.close
   }
 }
