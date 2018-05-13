@@ -1,0 +1,122 @@
+@import
+	url("http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css");
+/*reset.css*/
+@import url("https://fonts.googleapis.com/css?family=Poiret+One" );
+/*ロゴ*/
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
+/*文章*/
+body {
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 24px;
+	color: #212121;
+}
+
+h1 {
+	font-family: 'Poiret One', cursive;
+	color: #FFFFFF;
+}
+
+input {
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+}
+
+input[type="submit"] {
+	min-width: 300px;
+	margin: 10px 30px;
+	border: medium solid #009688;
+	color: #212121;
+}
+
+input[type="checkbox"] {
+	margin: 0 2px 0 0;
+	padding: 16px 16px 16px 16px;
+	border-radius: 8px;
+	vertical-align: middle;
+	background: #f6f7f8;
+	cursor: pointer;
+}
+
+input[type="checkbox"]:hover {
+	background-color: #e2edd7;
+}
+
+
+input[type="checkbox"]:checked {
+	margin: 8px 10px 8px 8px;
+	padding: 8px 8px 8px 8px;
+	background-color: #009688;
+	border-radius: 16px;
+}
+
+
+.index {
+	position: absolute;
+	/*left: 50%;*/
+	/*top: 25%;*/
+	/*transform: translate(-50%, -50%);*/
+	min-height: 1080px;
+	min-width: 1920px;
+	text-align: center;
+	background-color: #009688;
+}
+
+div.index h1 {
+	color: #795548;
+	font-size: 150px;
+}
+
+div.index input {
+	margin: 10px 30px;
+	min-width: 350px;
+	padding: 10px;
+	border: medium solid #795548;
+}
+
+.title {
+	background-color: #009688;
+	min-width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	color: #212121;
+}
+
+a:visited {
+	color: #777777;
+}
+
+a:hover {
+	color: #212121;
+}
+
+a:active {
+	color: #212121;
+}
+
+ul, ol {
+	padding: 0;
+	position: relative;
+}
+
+ul li, ol li {
+	color: #2d8fdd;
+	border-left: solid 6px #009688; /*左側の線*/
+	background: #f1fff8; /*背景色*/
+	margin-bottom: 10px; /*下のバーとの余白*/
+	line-height: 1.5;
+	padding: 0.5em;
+	list-style-type: none !important;
+}
